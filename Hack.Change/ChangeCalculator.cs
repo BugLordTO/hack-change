@@ -7,6 +7,11 @@ namespace Hack.Change
     {
         public ChangeModel CalculateChange(int pay, int amount)
         {
+            if (pay < 0 || amount < 0 || pay < amount)
+            {
+                return null;
+            }
+
             var change = new ChangeModel();
             change.Change = pay - amount;
             var remainChange = change.Change;
