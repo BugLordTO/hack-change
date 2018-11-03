@@ -5,28 +5,35 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Hack.Change.Web.Models;
+using Newtonsoft.Json;
+using Hack.Change.Models;
 
 namespace Hack.Change.Web.Controllers
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class HomeController : Controller
     {
+        private readonly IChangeCalculator changeCalculator;
+
+        public HomeController(IChangeCalculator changeCalculator)
+        {
+            this.changeCalculator = changeCalculator;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            if (TempData["result"] != null)
+                return View(JsonConvert.DeserializeObject<ChangeModel>(TempData["result"].ToString()));
+            else
+                return View();
         }
 
-        public IActionResult About()
+        [HttpPost("{pay}/{amount}")]
+        public IActionResult Index(int pay, int amount)
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            var result = changeCalculator.CalculateChange(pay, amount);
+            TempData["result"] = result;
+            return RedirectToAction(nameof(Index));
         }
 
         public IActionResult Error()
