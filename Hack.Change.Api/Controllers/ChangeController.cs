@@ -17,10 +17,11 @@ namespace Hack.Change.Api.Controllers
             this.changeCalculator = changeCalculator;
         }
 
-        //[HttpGet("{}/{}")]
-        //public IEnumerable<ChangeModel> Calculate()
-        //{
-        //   var result = changeCalculator.CalculateChange()
-        //}
+        [HttpGet("{pay}/{amount}")]
+        public ChangeModel Calculate(int pay, int amount)
+        {
+            var result = changeCalculator.CalculateChange(pay, amount);
+            return result;
+        }
     }
 }
