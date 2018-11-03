@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hack.Change", "Hack.Change\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hack.Change.Test", "Hack.Change.Test\Hack.Change.Test.csproj", "{CD208823-7B50-4FA5-8A51-44814F27601C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hack.Change.Web", "Hack.Change.Web\Hack.Change.Web.csproj", "{DDA3081F-D7A9-41A6-BD9F-B82A2E8ADC8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hack.Change.Api", "Hack.Change.Api\Hack.Change.Api.csproj", "{32AE6F34-9631-4B16-A535-0B0592F44313}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{CD208823-7B50-4FA5-8A51-44814F27601C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD208823-7B50-4FA5-8A51-44814F27601C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD208823-7B50-4FA5-8A51-44814F27601C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDA3081F-D7A9-41A6-BD9F-B82A2E8ADC8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDA3081F-D7A9-41A6-BD9F-B82A2E8ADC8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDA3081F-D7A9-41A6-BD9F-B82A2E8ADC8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDA3081F-D7A9-41A6-BD9F-B82A2E8ADC8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32AE6F34-9631-4B16-A535-0B0592F44313}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32AE6F34-9631-4B16-A535-0B0592F44313}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32AE6F34-9631-4B16-A535-0B0592F44313}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32AE6F34-9631-4B16-A535-0B0592F44313}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
