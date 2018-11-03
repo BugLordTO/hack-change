@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Hack.Change.Models;
 using Hack.Change.Web.Models;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using Hack.Change.Models;
+using System.Diagnostics;
 
 namespace Hack.Change.Web.Controllers
 {
@@ -20,20 +16,19 @@ namespace Hack.Change.Web.Controllers
             this.changeCalculator = changeCalculator;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? pay, int? amount)
         {
-            if (TempData["result"] != null)
-                return View(JsonConvert.DeserializeObject<ChangeModel>(TempData["result"].ToString()));
+            if (pay.HasValue && amount.HasValue)
+            {
+                var result = changeCalculator.CalculateChange(pay.Value, amount.Value);
+                ViewData["pay"] = pay.Value;
+                ViewData["amount"]= amount.Value;
+                return View(result);
+            }
             else
+            {
                 return View();
-        }
-
-        [HttpPost("{pay}/{amount}")]
-        public IActionResult Index(int pay, int amount)
-        {
-            var result = changeCalculator.CalculateChange(pay, amount);
-            TempData["result"] = result;
-            return RedirectToAction(nameof(Index));
+            }
         }
 
         public IActionResult Error()

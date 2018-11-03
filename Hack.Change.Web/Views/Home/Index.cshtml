@@ -1,26 +1,58 @@
-﻿@{
+﻿@model Hack.Change.Models.ChangeModel
+@{
     ViewData["Title"] = "Home Page";
 }
 <br />
-<form>
+<h3 class="text-center">โปรแกรมคำนวนเงินทอน</h3>
+<form asp-action="Index" method="get">
     <div class="form-group">
         <label for="pay">Pay</label>
-        <input type="text" class="form-control" id="pay" placeholder="กรอกจำนวน">
+        <input type="text" class="form-control" id="pay" name="pay" placeholder="กรอกจำนวน" value="@ViewData["pay"]">
     </div>
     <div class="form-group">
         <label for="amount">Amount</label>
-        <input type="text" class="form-control" id="amount" placeholder="กรอกจำนวน">
+        <input type="text" class="form-control" id="amount" name="amount" placeholder="กรอกจำนวน" value="@ViewData["amount"]">
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
 </form>
 <br />
 <div class="col-xs-12 well">
-    <p>เงินทอน :</p>
-    <p>1000 :</p>
-    <p>500 :</p>
-    <p>100 :</p>
-    <p>50 :</p>
-    <p>20 :</p>
-    <p>5 :</p>
-    <p>1 :</p>
+    <h4 class="text-center">ผลลัพธ์</h4>
+    <table class="table table-bordered" style="background-color:white">
+        <tbody>
+            <tr>
+                <th width="100">เงินทอน</th>
+                <td>@Model?.Change</td>
+            </tr>
+            <tr>
+                <th>1000</th>
+                <td>@Model?.Tousand</td>
+            </tr>
+            <tr>
+                <th>500</th>
+                <td>@Model?.FiveHundred</td>
+            </tr>
+            <tr>
+                <th>100</th>
+                <td>@Model?.Hundred</td>
+            </tr>
+            <tr>
+                <th>50</th>
+                <td>@Model?.Fifty</td>
+            </tr>
+            <tr>
+            <tr>
+                <th>20</th>
+                <td>@Model?.Twenty</td>
+            </tr>
+            <tr>
+                <th>5</th>
+                <td>@Model?.Five</td>
+            </tr>
+            <tr>
+                <th>1</th>
+                <td>@Model?.One</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
